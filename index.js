@@ -1,25 +1,49 @@
 let a = 1;
 let b = '1';
 
-switch (true){
-    case a==b:
-    console.log('Ya');
-    break;
-    case a !==b:
-        console.log('No');
-        break;
+// for (let i = 0; i < 10; i++){
+//     // console.log(i ** 2); // ** sama denga \n pangkat
+//     if (i % 2 == 0){
+//         console.log(`$(i) Genap`);
+//     }
+// }
+
+let i= 0;
+while (i < 10) {
+    i++
+    if (i === 5){
+        continue 
+    }
+console.log(i)
+
 }
 
-switch (a){
-    case 1:
-    console.log('Ya');
-    break;
-    case 2:
-        console.log('No');
-        break;
-        default:
-            console.log('default')
-}
+// jika looping tanpa batas ingin berhenti in klik ctrl + c
+
+// const c = a === b? 2 : 3; // kiri true, kanan false
+// console.log (c)
+
+// console.log(a == b ? true : false) // ternary, sama seperti kondisi if
+
+// switch (true){
+//     case a==b:
+//     console.log('Ya');
+//     break;
+//     case a !==b:
+//         console.log('No');
+//         break;
+// }
+
+// switch (a){
+//     case 1:
+//     console.log('Ya');
+//     break;
+//     case 2:
+//         console.log('No');
+//         break;
+//         default:
+//             console.log('default')
+// }
 
 // console.log(typeof a)
 
