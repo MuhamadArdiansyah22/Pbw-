@@ -1,0 +1,188 @@
+/*
+  Nama  : Muhamad Ardiansyah
+  NPM   : 2022110055
+  Tugas : T2-PBW-Javascript
+*/
+
+// Soal 1
+function question1(angka) {
+    if (angka > 20) {
+      return "Kebanyakan!";
+    } else if (angka < 0) {
+      return "Nope!";
+    } else {
+      return "$".repeat(angka);
+    }
+}
+
+console.log(question1(20));
+// Soal 2
+function question2(a,b) {
+  if(a>b){
+    return `${a} lebih besar dari ${b}.`
+  }
+  else{
+    return `${b} lebih kecil dari ${a}.`
+  }
+}
+
+console.log(question2(5,8))
+console.log(question2(9,2));
+console.log(question2(3,3));
+
+// Soal 3
+function question3(radius) {
+  if (radius <= 0) {
+    return "Radius invalid!";
+  }
+  let luas = Math.PI * radius * radius;
+  return luas.toFixed(2);
+}
+console.log(question3(8));
+console.log(question3(12));
+console.log(question3(-100));
+
+// Soal 4
+function question4(array) {
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] < 0) {
+      return "Negative!";
+    }
+  }
+
+  let total = 0;
+  for (let i = 0; i < array.length; i++) {
+    total += array[i];
+  }
+
+  let rataRata = total / array.length;
+  return Math.round(rataRata);
+}
+console.log(question4([4, 5, 6, 7, 8]));
+console.log(question4([100, 200, 300, 400, 500]));
+console.log(question4([-1, 4, 7, 11]));
+
+// Soal 5
+function question5(arr, percent = 1) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] < 0 || arr[i] > 100) {
+      console.log("Nilai invalid!");
+      return;
+    }
+    result.push(Math.round((arr[i] * percent) * 10) / 10);
+  }
+  return result;
+}
+console.log(question5([75, 75, 90], 1.05));
+console.log(question5([-50, 100,-20], 1));
+console.log(question5([0, 100, 0], 1));
+console.log(question5([90, 40, 30]));
+
+// Soal 6
+function question6(n) {
+  if (n <= 0) {
+    console.log("Invalid!");
+  } else if (n > 100) {
+    console.log("Kebanyakan!");
+  } else {
+    for (let i = 1; i <= n; i++) {
+      let row = "";
+      for (let j = 1; j <= n - i; j++) {
+        row += " ";
+      }
+      for (let k = 1; k <= i; k++) {
+        row += "$";
+      }
+      console.log(row);
+    }
+  }
+}
+  console.log(question6(4));
+console.log(question6(7));
+console.log(question6(0));
+console.log(question6(1000));
+
+
+// Soal 7
+function question7() {
+
+}
+
+// Soal 8
+  function question8() {
+   
+}
+
+// Soal 9
+function question9(grades) {
+    let sks = 0;
+    let bobot = 0;
+    
+    for (let grade of grades) {
+      grade = grade.toUpperCase();
+      if (grade === 'A') {
+        bobot += 4 * 2;
+        sks += 2;
+      } else if (grade === 'B') {
+        bobot += 3 * 2;
+        sks += 2;
+      } else if (grade === 'C') {
+        bobot += 2 * 2;
+        sks += 2;
+      } else if (grade === 'D') {
+        bobot += 1 * 2;
+        sks += 2;
+      } else if (grade === 'E') {
+        bobot += 0 * 2;
+        sks += 2;
+      } else {
+        return 'Array invalid!';
+      }
+    }
+    
+    let IPK = bobot / sks;
+    return IPK.toFixed(2);
+  }
+  
+  console.log(question9(['A', 'B', 'A', 'B']));
+  console.log(question9(['C', 'a', 'e', 'D']));
+  console.log(question9(['C', 'A', '98', 'X']));
+// Soal 10
+function question10(num) {
+    if (num <= 0) return "Invalid!";
+  
+    let result = "";
+    for (let i = 2; i <= num; i++) {
+      while (num % i === 0) {
+        result += `${i} `;
+        num /= i;
+      }
+    }
+  
+    return result.trim();
+  }
+  console.log(question10(24));
+console.log(question10(7));
+console.log(question10(76));
+console.log(question10(100));
+console.log(question10(-10));
+  
+
+// Uji function dengan console.log() di bawah ini
+// console.log(question1(5));
+
+
+// Bagian di bawah ini jangan dihapus!
+module.exports = {
+  question1,
+  question2,
+  question3,
+  question4,
+  question5,
+  question6,
+  question7,
+  question8,
+  question9,
+  question10
+};
