@@ -7,6 +7,7 @@
       <title>Form Input Barang</title>
     </head>
     <body>
+        <!-- Isi -->
         <table>
             <tr>
                 <th>Kode</th>
@@ -28,6 +29,10 @@
                 <th>Harga</th>
                 <td id="output-harga"></td>
             </tr>
+            <tr>
+                <th>Total Aset</th>
+                <td id="output-total-aset"></td>
+            </tr>
         </table>
 
 
@@ -38,7 +43,7 @@
                 get : (searchParams, prop) => searchParams.get(prop),
             });
 
-            const {kode,kategori,stok,harga} = params //object, ambil dari setiap properti menjadi variabel sendiri-sendiri, datanya harus jadi variable biasa
+            const {kode,kategori,stok,harga} = params //bentuk object, ambil dari setiap properti menjadi variabel sendiri-sendiri, datanya harus jadi variable biasa
 
             console.log(kode)
             console.log(params["nama-barang"])
@@ -49,8 +54,11 @@
             document.getElementById('output-kode').innerHTML = kode
             document.getElementById('output-nama-barang').innerHTML = params['nama-barang']
             document.getElementById('output-kategori').innerHTML = kategori
-            document.getElementById('output-stock').innerHTML = stock
+            document.getElementById('output-stock').innerHTML = stok
             document.getElementById('output-harga').innerHTML = harga
+            document.getElementById('output-total-aset').innerHTML = harga*stok
+        
+            
         </script>
     </body>
     </html>
