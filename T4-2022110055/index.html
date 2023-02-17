@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Form Input reservasi travel</h1>
+        <form method="get" action="output.html" novalidate class="needs-validation">
+        <div class="row g-3">
+            <div class="col-4">
+                <label for="input-kategori" class="form-table">Kategori</label>
+                <select class="form-select" name="kategori" id="input-kategori" required/>
+                    <option value="">Kategori</option>
+                    <option>Reguler</option>
+                    <option>Premium</option>
+                </select>
+            </div>
+            <div class="col-4">
+                <label for="jumlah-orang" class="form-table">Jumlah Orang</label>
+                <input type="number" id="jumlah-orang" name="jumlah-orang" class="form-control" required/>
+            </div>
+            <div class="col-8">
+                <label for="input-tujuan"></label>
+                <select class="form-select" name="tujuan" id="input-tujuan" required>
+                    <option>Pilih tujuan...</option>
+                    <option></option>
+                </select>
+            </div>
+            <div class="col-8">
+                <label for="harga">Harga</label>
+                <input type="int" class="form-control" disabled>
+            </div>
+            <div class="button">
+                <button type="submit" class="btn btn-primary">Kirim</button>
+                <button type="reset" class="btn btn-danger">Delete</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        function setTujuanOptions(kategori){
+            const options = []
+
+            switch (kategori){
+                case 'Reguler' : options.push('Bandung Raya', 'Jakarta', 'Semarang', 'Surabaya'); break;
+                case Premium : options.push('Singapura', 'Thailand', 'Australia', 'Jepang'); break;
+                default : options.push('Pilih tujuan...')
+            }
+
+            const tujuanElement = document.getElementById('input-tujuan')
+            while (tujuanElement.firstChild){
+                tujuanELement.firstChild.remove()
+            }
+            for (let option of option){
+                const optionElement=document.createElement('option')
+                optionElement.innerHTML = option
+                if (option == 'Pilih tujuan...') optionElement.value =''
+                tujuanElement.appendChild(optionElement)
+            }
+        }
+
+        document.getElementById('input-kategori').addEventListener('change',setFields)
+    </script>
+</body>
+</html>
