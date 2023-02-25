@@ -1,0 +1,114 @@
+<html lang="en">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  Link Boostrap  -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <title>Form Input Barang</title>
+    </head>
+    <body>
+        <!-- Isi -->
+        <div class="container">
+        <div class="position-relative">
+            <H2 class="m-3">
+                BERIKUT BARANG YANG ANDA KIRIMKAN
+            <div class="row">
+                <div class="col-6">
+                    <table class="table">
+                        <tr>
+                            <th>Nama Lengkap</th>
+                            <td id="output-nama-lengkap"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-light">Nomor Kontak</th>
+                            <td id="output-nomor-kontak" class="table-light"></td>
+                        </tr>
+                        <tr>
+                            <th>Asal Negara Pengirim</th>
+                            <td id="output-asal-negara"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-light">Nama Lengkap Tujuan</th>
+                            <td id="output-nama-tujuan" class="table-light"></td>
+                        </tr>
+                        <tr>
+                            <th>Nomor Kontak Tujuan</th>
+                            <td id="output-nomor-tujuan"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-light">Negara Tujuan</th>
+                            <td id="output-negara-tujuan"class="table-light"></td>
+                        </tr>
+                        <tr>
+                            <th>Berat Barang</th>
+                            <td id="output-berat"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-light">Jenis Prioritas</th>
+                            <td id="output-jenis"class="table-light"></td>
+                        </tr>
+                        <tr>
+                            <th>Estiminaasi Biaya</th>
+                            <td id="output-biaya"></td>
+                        </tr>
+                        <tr>
+                            <th class="table-light">PPN 11%</th>
+                            <td id="output-ppn"class="table-light"></td>
+                        </tr>
+                        <tr>
+                            <th>Total Biaya</th>
+                            <td id="output-total-biaya"></td>
+                        </tr>
+                    </table>
+                </H2>
+            </div>
+                </div>
+            </div>
+        
+</div>
+
+    <!--  Link Javascript  -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+        <script>
+            const params = new Proxy(new URLSearchParams(window.location.search),{
+                get : (searchParams, prop) => searchParams.get(prop),
+            });
+
+            console.log(params["nama-lengkap"])
+            console.log(params["nomor-kontak"])
+            console.log(params["asal-negara"])
+            console.log(params["nama-tujuan"])
+            console.log(params["nomor-tujuan"])
+            console.log(params["negara-tujuan"])
+            console.log(params["berat"])
+            console.log(params["jenis"])
+
+            document.getElementById('output-nama-lengkap').innerHTML = params['nama-lengkap']
+            document.getElementById('output-nomor-kontak').innerHTML = params['nomor-kontak']
+            const negaraAsal = document.getElementById('output-asal-negara').innerHTML = params['asal-negara']
+            document.getElementById('output-nama-tujuan').innerHTML = params['nama-tujuan']
+            document.getElementById('output-nomor-tujuan').innerHTML = params['nomor-tujuan']
+            const negaraTujuan = document.getElementById('output-negara-tujuan').innerHTML = params['negara-tujuan']
+            const berat = document.getElementById('output-berat').innerHTML = params['berat']
+            const jenis = document.getElementById('output-jenis').innerHTML = params['jenis']
+             
+
+            let biayaPengiriman = 0;
+
+            if (negaraAsal === negaraTujuan) {
+            biayaPengiriman = 20000 + 5000 * berat;
+            } else {
+            biayaPengiriman = 50000 + 20000 * berat;
+            }
+
+
+
+           document.getElementById('output-biaya').innerHTML = biayaPengiriman ;
+           const ppn = document.getElementById('output-ppn').innerHTML = biayaPengiriman * 0.11;
+           document.getElementById('output-total-biaya').innerHTML = biayaPengiriman + ppn;
+
+        
+            
+        </script>
+    </body>
+    </html>

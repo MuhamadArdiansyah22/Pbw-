@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <h1>Form Pengiriman Barang</h1>
+
+    <div class="container">
+        <form action="output.html" method="get" class="form needs-validation" novalidate>
+            <div class="row has-validation">
+                <div class="col-sm-4 g-3">
+                    <label for="input-nama-lengkap">Nama Lengkap</label>
+                    <input type="text" id="input-nama-lengkap" name="nama-lengkap" placeholder="Masukan Nama" class="form-control" required/>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nama lengkap
+                    </div>
+                </div>
+                <div class="col-sm-4 g-3">
+                    <label for="input-nomor-kontak">Nomor Kontak</label>
+                    <input type="number" id="input-nomor-kontak" name="nomor-kontak" placeholder="Masukan Nomor" class="form-control" required/>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nomor
+                    </div>
+                </div>
+                <div class="col-sm-4 g-3">
+                    <label for="input-asal-negara">Asal Negara Pengirim</label><br>
+                    <select class="form-select" name="asal-negara" id="input-asal-negara">
+                        <option>Pilih Asal Negara...</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Singapura">Singapura</option>
+                        <option value="Inggris">Inggris</option>
+                        <option value="Belanda">Belanda</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Afrika">Afrika</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Amerika">Amerika</option>
+                        <option value="Reset">Rusia</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nomor
+                    </div>
+                </div>
+                <div class="col-sm-4 g-3">
+                    <label for="input-nama-lengkap-tujuan">Nama Lengkap</label>
+                    <input type="text" id="input-nama-lengkap-tujuan" name="nama-tujuan" placeholder="Masukan Nama" class="form-control" required/>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nama lengkap
+                    </div>
+                </div>
+                <div class="col-sm-4 g-3">
+                    <label for="input-nomor-kontak-tujuan">Nomor Kontak</label>
+                    <input type="number" id="input-nomor-kontak-tujuan" name="nomor-tujuan" placeholder="Masukan Nomor" class="form-control" required/>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nomor
+                    </div>
+                </div>
+                <div class="col-sm-4 g-3">
+                    <label for="input-negara-tujuan">Asal Negara Penerima</label><br>
+                    <select class="form-select" name="negara-tujuan" id="input-negara-tujuan">
+                        <option>Pilih Tujuan Negara...</option>
+                        <option value="Indonesia">Indonesia</option>
+                        <option value="Malaysia">Malaysia</option>
+                        <option value="Singapura">Singapura</option>
+                        <option value="Inggris">Inggris</option>
+                        <option value="Belanda">Belanda</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Afrika">Afrika</option>
+                        <option value="Bangladesh">Bangladesh</option>
+                        <option value="Amerika">Amerika</option>
+                        <option value="Reset">Rusia</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nomor
+                    </div>
+                </div>
+                <div class="col-2 g-3">
+                    <label for="input-berat-barang">Berat Barang Dalam Satuan KG</label>
+                    <input type="number" id="input-berat-barang" name="berat" placeholder="Masukan Berat" class="form-control" min="1" required/>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nomor
+                    </div>
+                </div>
+                <div class="col-6 g-3">
+                    <label for="input-jenis">Jenis Prioritas</label>
+                    <select class="form-select" name="jenis" id="input-jenis">
+                        <option value="Reguler">Reguler</option>
+                        <option value="Express">Express</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Salah, silahkan input nomor
+                    </div>
+                </div>
+                    <div class="d-grid gap-2 col-6 mx-auto mt-3">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-danger" type="reset">Reset</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+    </script>
+</body>
+</html>
